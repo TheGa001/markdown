@@ -1032,12 +1032,12 @@ useEffect(() => {
 ```tsx
 
 // 监听工具栏变化事件
-ToolbarManager.on("TOOLBAR_ADDED", (toolbarItem) => {
+ToolbarManager.on("toolbar:added", (toolbarItem) => {
   console.log("新增了工具栏项:", toolbarItem);
 });
 
 // 一次性事件监听
-ToolbarManager.once("TOOLBAR_REMOVED", (type) => {
+ToolbarManager.once("toolbar:removed", (type) => {
   console.log(`工具栏项 ${type} 已被移除`);
 });
 
@@ -1045,9 +1045,9 @@ ToolbarManager.once("TOOLBAR_REMOVED", (type) => {
 const updateHandler = (updatedItem) => {
   console.log("工具栏项已更新:", updatedItem);
 };
-ToolbarManager.on("TOOLBAR_UPDATED", updateHandler);
+ToolbarManager.on("toolbar:updated", updateHandler);
 // 稍后移除监听
-ToolbarManager.off("TOOLBAR_UPDATED", updateHandler);
+ToolbarManager.off("toolbar:updated", updateHandler);
 
 
 ```
