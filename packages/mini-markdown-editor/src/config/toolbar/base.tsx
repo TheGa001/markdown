@@ -19,7 +19,8 @@ import { ToolbarItem } from "@/types/toolbar";
 // 组件
 import Upload from "@/components/Toolbar/Upload";
 import FullScreen from "@/components/Toolbar/FullScreen";
-import { Contents, Read, Write, Help, Output } from "@/components/Toolbar/ShowLayout";
+import {  Help, Output } from "@/components/Toolbar/ShowLayout";
+// Contents, Read, Write(上面引入多余),
 import Emoji from "@/components/Toolbar/Emoji";
 import Save from "@/components/Toolbar/Save";
 // 快捷键描述
