@@ -16,6 +16,7 @@ import { EditorRef } from "./types/ref";
 import { useExposeHandle } from "./hooks/use-expose-handle";
 import { defaultGlobalConfig } from "./config/global";
 import { setLocale } from "./locales/index";
+import AIChat from "./components/AIchat"; // 引入AI聊天组件
 
 const Container = styled.div`
   width: 100%;
@@ -94,6 +95,8 @@ const LayoutConfig = {
   READ_ONLY_SIDEBAR: { cols: [0, 18, 6], components: ["editor", "preview", "sidebar"] },
   // 读写+侧边栏
   READ_WRITE_SIDEBAR: { cols: [9, 9, 6], components: ["editor", "preview", "sidebar"] },
+  // 读写+侧边栏+AI聊天窗口
+  READ_WRITE_SIDEBAR_AI: { cols: [9, 9, 0, 6], components: ["editor", "preview", "sidebar", "aiChat"] },
 };
 
 // 渲染不同分区
@@ -101,10 +104,14 @@ const RenderRow: FC<{
   editor: React.ReactNode;
   preview: React.ReactNode;
 }> = ({ editor, preview }) => {
-  const { isOnlyWrite, isOnlyPreview, isSidebar, sidebarComponent } = useToolbarStore();
+  const { isOnlyWrite, isOnlyPreview, isSidebar, sidebarComponent,isAIChatEnabled } = useToolbarStore();
 
   // 根据状态确定布局配置
   const getLayoutConfig = () => {
+    // 处理读写+侧边栏+AI聊天窗口模式
+    if (isAIChatEnabled) {
+        return LayoutConfig.READ_WRITE_SIDEBAR_AI;
+      }
     // 处理只写模式
     if (isOnlyWrite && !isOnlyPreview) {
       return isSidebar ? LayoutConfig.WRITE_ONLY_SIDEBAR : LayoutConfig.WRITE_ONLY;
@@ -126,6 +133,7 @@ const RenderRow: FC<{
     editor,
     preview,
     sidebar: sidebarComponent,
+    aiChat: <AIChat />, // 添加AI聊天组件
   };
   // 两列以上时显示分割线
   const showDivider = layout.cols.length > 1;

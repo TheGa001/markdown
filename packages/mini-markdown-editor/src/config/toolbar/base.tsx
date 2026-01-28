@@ -213,18 +213,18 @@ export const defaultToolbar: ToolbarItem[] = [
     hotkey: Hotkey.SAVE.toConfig(),
     component: <Save />,
   },
-  {
-    type: "write",
-    component: <Write />,
-  },
-  {
-    type: "preview",
-    component: <Read />,
-  },
-  {
-    type: "contents",
-    component: <Contents />,
-  },
+//   {
+//     type: "write",
+//     component: <Write />,
+//   },
+//   {
+//     type: "preview",
+//     component: <Read />,
+//   },
+//   {
+//     type: "contents",
+//     component: <Contents />,
+//   },
   {
     type: "help",
     component: <Help />,

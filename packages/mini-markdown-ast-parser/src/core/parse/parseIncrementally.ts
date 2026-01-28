@@ -88,8 +88,7 @@ export const parseIncrementally = (
     };
 
     tokenizer(lines.slice(range.start, range.end), tempRoot);
-    root.children.push(...tempRoot.children);
-
+    root.children.push(...tempRoot.children);    
     lastEndLine = range.end;
   }
 

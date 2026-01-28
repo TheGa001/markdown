@@ -75,6 +75,7 @@ export const parseHtml = ({
 
     // 如果是单标签，直接处理并返回
     if (tagName && voidElements.has(tagName)) {
+       // 添加 data-line 属性
       const dataLineAttr = ` data-line="${index + 1}"`;
       // 处理自闭合和非自闭合两种情况
       const content = selfClosingTagRegex.test(trimmedLine)

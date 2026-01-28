@@ -11,6 +11,8 @@ export interface ToolbarStoreType {
   sidebarComponent: React.ReactNode | null;
   componentMark: string | null;
   setSidebar: (sidebarComponent: React.ReactNode | null, componentMark: string | null) => void;
+  isAIChatEnabled: boolean;
+  toggleAIChat: () => void;
 }
 
 const useToolbarStore = create<ToolbarStoreType>((set, get) => ({
@@ -41,6 +43,9 @@ const useToolbarStore = create<ToolbarStoreType>((set, get) => ({
       set({ isSidebar: true, sidebarComponent, componentMark });
     }
   },
+    // AI聊天窗口
+  isAIChatEnabled: true,
+  toggleAIChat: () => set((state) => ({ isAIChatEnabled: !state.isAIChatEnabled })),
 }));
 
 export { useToolbarStore };
