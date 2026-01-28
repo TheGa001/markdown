@@ -9,7 +9,7 @@
   },
   "engine-strict": true,
   "packageManager": "pnpm@7.33.5",
-  "homepage": "https://github.com/xiaotianna/mini-markdown-editor",
+  "homepage": "https://github.com/TheGa001/TheGa001.github.io",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xiaotianna/mini-markdown-editor.git"
@@ -39,7 +39,9 @@
     "prepare": "husky",
     "lint": "node ./scripts/zx-lint.js",
     "prettier": "prettier --write .",
-    "build": "pnpm build:ast && pnpm build:editor"
+    "build": "pnpm build:ast && pnpm build:editor",
+    "deploy": "gh-pages -d packages/mini-markdown-editor/dist",
+    "predeploy": "pnpm run build"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
@@ -57,10 +59,12 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "cz-vinyl": "1",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.3.0",
     "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "zx": "^8.3.0"
   }
+
 }
