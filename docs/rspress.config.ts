@@ -9,7 +9,7 @@ export default defineConfig({
       editorPosition: "right",
     }),
   ],
-  base: "/mini-markdown-editor/",
+  base: "/TheGa001.github.io/",
   builderConfig: {
     tools: {
       rspack: {
