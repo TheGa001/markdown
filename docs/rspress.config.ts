@@ -9,7 +9,7 @@ export default defineConfig({
             editorPosition: "right",
         }),
     ],
-    base: "/markdown/",
+    base: "/markdown/example/index.html/",
     builderConfig: {
         tools: {
             rspack: {
